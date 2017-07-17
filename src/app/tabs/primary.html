@@ -1,0 +1,19 @@
+<div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="decisionCode" class="col-sm-2 control-label">Код решения:</label>
+            <div class="col-sm-2">
+                <select ng-model="primTabsCtrl.decisionService.decision.decisionCode" class="form-control col-sm-2" id="decisionCode">
+                    <option ng-repeat="decisionCode in primTabsCtrl.decisionCodes" value="{{decisionCode._links.self.href}}">{{decisionCode.label}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <button ng-click="primTabsCtrl.save()" class="btn btn-primary" type="button">Сохранить</button>
+    <button ng-click="primTabsCtrl.postpone()" class="btn btn-primary" type="button">Отложить</button>
+    <button ng-click="primTabsCtrl.improve()" class="btn btn-primary" type="button">Доработка</button>
+    <button ng-click="primTabsCtrl.recall()" class="btn btn-primary" type="button">Прозвон</button>
+    <button ng-click="primTabsCtrl.finalize()" class="btn btn-primary" type="button">Финализация</button>
+    <button ng-click="primTabsCtrl.deb()" class="btn btn-primary" type="button">ДЭБ</button>
+</div>

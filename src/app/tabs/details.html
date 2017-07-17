@@ -1,0 +1,26 @@
+ИНФОРМАЦИЯ ПО ЗАЯВКЕ
+<div>
+    <uib-tabset active="activeForm">
+        <uib-tab index="0" heading="Основной экран">
+            <div ui-view="primary"></div>
+        </uib-tab>
+        <uib-tab index="1" heading="Анкета">
+            <div ui-view="client_info"></div>
+        </uib-tab>
+        <uib-tab index="2" heading="Телефоны">
+            <div ui-view="client_phones"></div>
+        </uib-tab>
+        <uib-tab index="3" heading="Доходы">
+            <div ui-view="client_income"></div>
+        </uib-tab>
+        <uib-tab index="4" heading="История сотрудничества">
+            <div ui-view="client_credits"></div>
+        </uib-tab>
+        <uib-tab index="5" heading="Анализ заемщика">
+            <div ui-view="client_params"></div>
+        </uib-tab>
+        <uib-tab index="6" heading="Fraud monitiring">
+            <div ui-view="client_fraud"></div>
+        </uib-tab>
+    </uib-tabset>
+</div>

@@ -1,0 +1,27 @@
+<div>
+    <form name="outerForm" class="tab-form-demo">
+        <table ng-show="applCtrl.apps.length" class="table table-hover" ng-cloak>
+            <thead>
+                <tr>
+                    <th>ID заявки</th>
+                    <th>Продукт</th>
+                    <th>Дата поступления</th>
+                    <th>ФИО</th>
+                    <th>На исполнении</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr ng-repeat="app in applCtrl.apps" ng-click="applCtrl.capture(app.applNum)">
+                    <td>{{app.applNum}}</td>
+                    <td>{{app.product}}</td>
+                    <td>{{app.createDate  | date:'dd.MM.yyyy HH:mm'}}</td>
+                    <td>{{app.fullName}}</td>
+                    <td>{{app.owner}}</td>
+                    <td>{{app.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-hide="applCtrl.apps.length" ng-cloak>Нет заявок.</div>
+    </form>
+</div>

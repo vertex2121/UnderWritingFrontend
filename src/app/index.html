@@ -1,0 +1,117 @@
+<html ng-app="app">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Поиск</title>
+        <base href="/">
+        <link rel="icon" type="image/png" href="content/images/favicon.png"/>
+        <!-- build:css css/bootstrap.min.css -->
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- endbuild -->
+        <link href="content/css/starter-template.css" rel="stylesheet">
+        <link href="content/css/login.css" rel="stylesheet">
+        <style type="text/css">
+            .ng-cloa {
+                display: none !important;
+            }
+        </style>
+
+    </head>
+
+    <body style="overflow-y: scroll;" ng-controller="roleController as roleCtrl" ng-cloak>
+        <div class="sw4_notify">
+            <alert ng-repeat="alert in alerts" type="alert.type" class="alert alert-{{alert.type}}">{{ alert.msg }}
+                <button type="button" class="close" ng-click="roleCtrl.closeAlert($index)">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </alert>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"></a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <div class="form-group">
+                        <div>
+                            <ul class="nav navbar-nav navbar-right form-horizontal" ng-show="roleCtrl.authenticated()">
+                                <li>
+                                    <a>
+                                        <select ng-options="role.authority for role in roleCtrl.getRoles()" ng-model="roleCtrl.selectedRole" ng-change="roleCtrl.changeRole()"></select>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="applications">Заявки</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="help">Справка</a>
+                                </li>
+                                <li>
+                                    <a ui-sref="login" ng-click="roleCtrl.logout()">Выход</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div ui-view></div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="col-xs-6">
+                    <p class="text-muted">© 2016 Банк "ТРАСТ" (ПАО). Отдел Риск-технологий.
+                    </p>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <p class="text-muted ">v.0.0.1</p>
+                </div>
+            </div>
+        </footer>
+        <!-- build:js libs/angular.min.js -->
+        <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
+        <!-- endbuild -->
+        <!-- build:js libs/angular-animate.min.js -->
+        <script src="bower_components/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+        <!-- endbuild -->
+        <!-- build:js libs/angular-locale_ru-ru.js -->
+        <script src="bower_components/angular-i18n/angular-locale_ru-ru.js" type="text/javascript"></script>
+        <!-- endbuild -->
+        <!-- build:js libs/ui-bootstrap-tpls.min.js -->
+        <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script> -->
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+        <!-- endbuild -->
+        <!-- build:js libs/angular-ui-router.min.js -->
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
+        <!-- endbuild -->
+        <!-- build:js underwriting.min.js -->
+        <script src="app.module.js" type="text/javascript"></script>
+        <script src="app.route.js" type="text/javascript"></script>
+        <script src="app.config.js" type="text/javascript"></script>
+        <script src="services/alert.service.js" type="text/javascript"></script>
+        <script src="services/auth.service.js" type="text/javascript"></script>
+        <script src="services/application.service.js" type="text/javascript"></script>
+        <script src="services/data.service.js" type="text/javascript"></script>
+        <script src="services/decision.service.js" type="text/javascript"></script>
+        <script src="applications/applications.controller.js" type="text/javascript"></script>
+        <script src="login/login.controller.js" type="text/javascript"></script>
+        <script src="role/role.controller.js" type="text/javascript"></script>
+        <script src="tabs/details.controller.js" type="text/javascript"></script>
+        <script src="tabs/tabs.primary.controller.js" type="text/javascript"></script>
+        <!-- endbuild -->
+    </body>
+</html>
